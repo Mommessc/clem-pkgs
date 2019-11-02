@@ -1,0 +1,39 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index eb87a21..8f57d44 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -186,7 +186,7 @@ configure_file(${CMAKE_SOURCE_DIR}/etc/config.ini.in "${CMAKE_BINARY_DIR}/etc/co
+ 
+ # Required packages
+ find_package(OpenGL REQUIRED)
+-find_package(assimp 4.0.0 EXACT REQUIRED)
++find_package(assimp REQUIRED)
+ 
+ if(${BUILD_EXAMPLES})
+     add_subdirectory(app)
+@@ -225,12 +225,13 @@ target_include_directories(${PROJECT_NAME} PRIVATE $<BUILD_INTERFACE:${ASSIMP_IN
+ 
+ target_include_directories(${PROJECT_NAME}  PUBLIC $<INSTALL_INTERFACE:include/GLTK>)
+ 
+-target_link_libraries(${PROJECT_NAME} PRIVATE ${OPENGL_LIBRARIES} ${ASSIMP_LIBRARY_DIRS}/lib${ASSIMP_LIBRARIES}.a)
++target_link_libraries(${PROJECT_NAME} PRIVATE ${OPENGL_LIBRARIES} ${ASSIMP_LIBRARY_DIRS}/${ASSIMP_LIBRARIES})
+ 
+ if(${BUILD_WITH_GLFW})
+     target_include_directories(${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src/glfw>)
+-    target_include_directories(${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${GLFW3_INCLUDE_DIR}>)
+-    target_link_libraries(${PROJECT_NAME} PUBLIC ${GLFW3_LIBRARY})
++    #target_include_directories(${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${GLFW3_INCLUDE_DIR}>)
++    #target_link_libraries(${PROJECT_NAME} PUBLIC ${GLFW3_LIBRARY})
++    target_link_libraries(${PROJECT_NAME} PUBLIC glfw)
+ endif()
+ 
+ #========= Install rules =========#
+@@ -256,8 +257,5 @@ install(EXPORT ${PROJECT_NAME}Config DESTINATION lib/cmake)
+ ## install header files
+ install(FILES ${HEADER_FILES} DESTINATION include/GLTK)
+ 
+-## install examples
+-install(DIRECTORY ${CMAKE_BINARY_DIR}/bin/ DESTINATION bin)
+-
+ ## install share/ directory
+ install(DIRECTORY share/ DESTINATION share)
