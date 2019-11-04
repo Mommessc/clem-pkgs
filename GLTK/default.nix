@@ -25,5 +25,5 @@ stdenv.mkDerivation rec {
 	cmakeFlags = ''-DBUILD_EXAMPLES=OFF'';
 	enableParallelBuilding = true;
 
-	patches = [ ./gltk.patch ];
+	patches = [ ./patch.patch ];
 }
