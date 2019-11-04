@@ -10,6 +10,7 @@ let
   self = rec {
     GLTK = callPackage ./GLTK { };
     katarenga = callPackage ./katarenga { };
+    gnat = callPackage ./gnat { };
 
     inherit pkgs;
   }
