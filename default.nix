@@ -10,6 +10,8 @@ let
   self = rec {
     GLTK = callPackage ./GLTK { };
     katarenga = callPackage ./katarenga { };
+
+    inherit pkgs;
   }
   // pkgs.stdenv.lib.optionalAttrs useClang { stdenv = pkgs.clangStdenv; };
 in
