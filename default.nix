@@ -5,12 +5,13 @@
 }:
 let
   # Add libraries to the scope of callPackage
-  callPackage = pkgs.lib.callPackageWith (pkgs // pkgs.xlibs // self);
+  #callPackage = pkgs.lib.callPackageWith (pkgs // pkgs.xlibs // self);
   
   self = rec {
-    GLTK = callPackage ./GLTK { };
-    katarenga = callPackage ./katarenga { };
-    gnat = callPackage ./gnat { };
+    GLTK = pkgs.callPackage ./GLTK { };
+    katarenga = pkgs.callPackage ./katarenga { };
+    gnat = pkgs.callPackage ./gnat { };
+    oh-my-zsh-mpoquet = pkgs.callPackage ./oh-my-zsh/mpoquet.nix { };
 
     inherit pkgs;
   }
