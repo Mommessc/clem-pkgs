@@ -15,14 +15,16 @@ stdenv.mkDerivation rec {
 
 	nativeBuildInputs = [
 		cmake
+		GLTK
 	];
 
 	buildInputs = [
-		GLTK
 		cppzmq
 		zeromq
 		docopt_cpp
 	];
+
+	shellHook = ''GLTK_DIR=${GLTK}/lib/cmake'';
 
 	enableParallelBuilding = true;
 }
