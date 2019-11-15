@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
 
 	src = fetchGit {
 		ref = "master";
-		url = "https://github.com/Henry38/OpenGL.git";
+		url = "https://github.com/Henry38/GLTK.git";
 	};
 
 	nativeBuildInputs = [
