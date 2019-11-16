@@ -5,18 +5,17 @@
 
 stdenv.mkDerivation rec {
 	name = "GLTK-${version}";
-	version = "1.0.0-alpha";
+	version = "0.0.1";
 
 	src = fetchGit {
-		ref = "master";
+		#url = "https://github.com/Henry38/GLTK/archive/v0.0.1.tar.gz";
 		url = "https://github.com/Henry38/GLTK.git";
+		ref = "v0.0.1";
+		#ref = "master";
 	};
 
 	nativeBuildInputs = [
 		cmake
-	];
-
-	buildInputs = [
 		glfw3
 		assimp
 		glm
