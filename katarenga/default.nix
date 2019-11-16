@@ -1,6 +1,6 @@
 { stdenv
 , cmake
-, GLTK
+, GLTK, glfw3
 , cppzmq, zeromq, docopt_cpp
 }:
 
@@ -16,6 +16,7 @@ stdenv.mkDerivation rec {
 	nativeBuildInputs = [
 		cmake
 		GLTK
+		glfw3
 	];
 
 	buildInputs = [
@@ -24,7 +25,7 @@ stdenv.mkDerivation rec {
 		docopt_cpp
 	];
 
-	shellHook = ''GLTK_DIR=${GLTK}/lib/cmake'';
+	cmakeFlags = "-DGLTK_DIR=${GLTK}/lib/cmake";
 
 	enableParallelBuilding = true;
 }

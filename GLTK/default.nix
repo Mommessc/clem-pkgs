@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
 		#ref = "master";
 	};
 
-	nativeBuildInputs = [
+	buildInputs = [
 		cmake
 		glfw3
 		assimp
