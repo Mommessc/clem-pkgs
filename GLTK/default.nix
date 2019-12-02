@@ -16,10 +16,10 @@ stdenv.mkDerivation rec {
 
 	buildInputs = [
 		cmake
-		glfw3
 		assimp
-		glm
 	];
+
+	propagatedBuildInputs = [ glfw3 glm ];
 
 	cmakeFlags = ''-DBUILD_EXAMPLES=OFF'';
 	enableParallelBuilding = true;
