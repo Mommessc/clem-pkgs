@@ -22,10 +22,6 @@ stdenv.mkDerivation rec {
 		GLTK
 	];
 
-	cmakeFlags = "-DGLTK_DIR=${GLTK}/lib/cmake";
-
-	shellHook = ''export GLTK_DIR=${GLTK}/lib/cmake'';
-
 	enableParallelBuilding = true;
 
 	# Since nothing is specified in the CMakeLists yet

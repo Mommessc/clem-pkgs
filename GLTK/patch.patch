@@ -11,12 +11,3 @@ index 24dc054..cdf1270 100644
  
  if(${BUILD_EXAMPLES})
      add_subdirectory(app)
-@@ -236,7 +236,7 @@ endif()
- #========= Install rules =========#
- 
- ## Change default install prefix
--set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR}/install CACHE PATH "Install path prefix, prepended onto install directories." FORCE)
-+#set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR}/install CACHE PATH "Install path prefix, prepended onto install directories." FORCE)
- 
- ## install target binary
- install(TARGETS ${PROJECT_NAME}

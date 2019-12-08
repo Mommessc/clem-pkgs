@@ -10,8 +10,8 @@ stdenv.mkDerivation rec {
 	src = fetchGit {
 		#url = "https://github.com/Henry38/GLTK/archive/v0.0.1.tar.gz";
 		url = "https://github.com/Henry38/GLTK.git";
-		ref = "v0.0.1";
-		#ref = "master";
+		#ref = "v0.0.1";
+		ref = "master";
 	};
 
 	buildInputs = [
