@@ -11,7 +11,6 @@ let
     GLTK = pkgs.callPackage ./GLTK { };
     katarenga = pkgs.callPackage ./katarenga { inherit GLTK; };
     gnat = pkgs.callPackage ./gnat { };
-    oh-my-zsh-mpoquet = pkgs.callPackage ./oh-my-zsh/mpoquet.nix { };
 
     inherit pkgs;
   }
