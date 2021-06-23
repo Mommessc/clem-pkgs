@@ -12,4 +12,7 @@ rec {
     GLTK = pkgs.callPackage ./pkgs/GLTK { };
     katarenga = pkgs.callPackage ./pkgs/katarenga { inherit GLTK; };
     gnat = pkgs.callPackage ./pkgs/gnat { };
+
+    vpsolver = pkgs.callPackage ./pkgs/vpsolver/vpsolver.nix { };
+    pyvpsolver = pkgs.callPackage ./pkgs/vpsolver/pyvpsolver.nix { };
 }
