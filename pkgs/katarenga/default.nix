@@ -1,10 +1,10 @@
-{ stdenv
+{ clangStdenv
 , cmake
 , GLTK, glfw3
 , zmqpp, docopt_cpp
 }:
 
-stdenv.mkDerivation rec {
+clangStdenv.mkDerivation rec {
 	name = "Katarenga-${version}";
 	version = "1.0.0-alpha";
 

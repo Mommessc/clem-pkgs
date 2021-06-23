@@ -1,19 +1,15 @@
 {
-  pkgs ? import <nixpkgs> {},
-  # use Clang instead of GCC
-  useClang ? true
+    pkgs ? import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/20.09.tar.gz") {},
+    # use Clang instead of GCC
+    #useClang ? true
 }:
-let
-  # Add libraries to the scope of callPackage
-  #callPackage = pkgs.lib.callPackageWith (pkgs // pkgs.xlibs // self);
-  
-  self = rec {
-    GLTK = pkgs.callPackage ./GLTK { };
-    katarenga = pkgs.callPackage ./katarenga { inherit GLTK; };
-    gnat = pkgs.callPackage ./gnat { };
-
+#let
+# Add libraries to the scope of callPackage
+#stdenv = pkgs.clangStdenv;
+rec {
     inherit pkgs;
-  }
-  // pkgs.stdenv.lib.optionalAttrs useClang { stdenv = pkgs.clangStdenv; };
-in
-  self
+    
+    GLTK = pkgs.callPackage ./pkgs/GLTK { };
+    katarenga = pkgs.callPackage ./pkgs/katarenga { inherit GLTK; };
+    gnat = pkgs.callPackage ./pkgs/gnat { };
+}
